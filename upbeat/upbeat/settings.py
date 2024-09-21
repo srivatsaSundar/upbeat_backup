@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gu@f8vwk0hl-rtwf(hiso)gnebw))0k5c8c@dj=#rze!o*q__o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','http://localhost:3000','https://upbeat-mu.vercel.app/','https://main.d2xz3cyvwx48d0.amplifyapp.com/','https://upbeat-backup.onrender.com']
 
 
 # Application definition
@@ -136,4 +136,4 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Default
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CSRF_TRUSTED_ORIGINS=['https://upbeat-backup.onrender.com',"http://localhost:3000/","https://upbeat-mu.vercel.app/","https://main.d2xz3cyvwx48d0.amplifyapp.com/"]
+CSRF_TRUSTED_ORIGINS=['https://upbeat-backup.onrender.com','http://localhost:3000/','https://upbeat-mu.vercel.app/','https://main.d2xz3cyvwx48d0.amplifyapp.com/']
