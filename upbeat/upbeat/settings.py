@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'drf_spectacular',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'upbeat.urls'
@@ -136,6 +139,6 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Default
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = ['*','https://upbeat-backup.onrender.com','http://localhost:3000','https://upbeat-mu.vercel.app/','https://main.d2xz3cyvwx48d0.amplifyapp.com/']
+CORS_ALLOWED_ORIGINS = ['https://upbeat-backup.onrender.com','http://localhost:3000','https://upbeat-mu.vercel.app/','https://main.d2xz3cyvwx48d0.amplifyapp.com/']
 
 # CSRF_TRUSTED_ORIGINS=['https://upbeat-backup.onrender.com','http://localhost:3000/','https://upbeat-mu.vercel.app/','https://main.d2xz3cyvwx48d0.amplifyapp.com/']
