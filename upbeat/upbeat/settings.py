@@ -141,4 +141,4 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = ['https://upbeat-backup.onrender.com','http://localhost:3000','https://upbeat-mu.vercel.app','https://main.d2xz3cyvwx48d0.amplifyapp.com']
 
-# CSRF_TRUSTED_ORIGINS=['https://upbeat-backup.onrender.com','http://localhost:3000/','https://upbeat-mu.vercel.app/','https://main.d2xz3cyvwx48d0.amplifyapp.com/']
+CSRF_TRUSTED_ORIGINS=['https://upbeat-backup.onrender.com','http://localhost:3000/','https://upbeat-mu.vercel.app/','https://main.d2xz3cyvwx48d0.amplifyapp.com/']
