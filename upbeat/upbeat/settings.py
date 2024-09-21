@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gu@f8vwk0hl-rtwf(hiso)gnebw))0k5c8c@dj=#rze!o*q__o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -126,9 +126,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-        # or use custom JWT authentication classes if needed
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+        'app.authentication.CustomTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',  
     ),
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Default
+
+
+CORS_ALLOW_ALL_ORIGINS = True
