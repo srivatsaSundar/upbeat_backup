@@ -111,6 +111,7 @@ def get_user_details(request):
         "id": str(user.id),
         "username": user.username,
         "email": user.email,
+        "phone_number":user.phone_number,
     }
     return Response(user_data)
 
