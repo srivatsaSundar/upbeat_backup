@@ -9,6 +9,7 @@ from .serializers import *
 import pickle
 import pandas as pd
 import random
+from together import Together
 
 # User Signup
 class SignupView(APIView):
@@ -242,8 +243,6 @@ def delete_profile(request):
    
     return Response({"message": "Profile and associated records deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
 
-
-from together import Together
 
 client = Together(api_key="2eb1d5b8248409cc8509947d37fbcf0945c28d5bebbd6599feca1e0d41e912ed")
 
