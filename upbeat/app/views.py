@@ -241,3 +241,48 @@ def delete_profile(request):
     profile.delete()
    
     return Response({"message": "Profile and associated records deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+
+
+from together import Together
+
+client = Together(api_key="2eb1d5b8248409cc8509947d37fbcf0945c28d5bebbd6599feca1e0d41e912ed")
+
+class ChatBotView(APIView):
+    """
+    This API view handles chatbot interaction. The client sends a query, and the chatbot
+    responds with psychiatric advice.
+    """
+
+    def post(self, request):
+        query = request.data.get('query', None)
+
+        if query:
+            try:
+                # Make a request to the Together API for the chatbot completion
+                response = client.chat.completions.create(
+                    model="togethercomputer/llama-2-13b-chat",
+                    max_tokens=100,
+                    messages=[
+                        {
+                            "role": 'system',
+                            "content": 'You are a psychiatrist. A patient would come to you and you should provide them advice based on the previous replies. Try to provide a solution based on their replies ',
+                        },
+                        {
+                            "role": 'user',
+                            "content": query,
+                        },
+                    ],
+                )
+
+                # Extract the chatbot's response
+                bot_response = response.choices[0].message.content
+
+                # Send the response back to the client
+                return Response({"response": bot_response}, status=status.HTTP_200_OK)
+
+            except Exception as e:
+                # Handle any exceptions and return a 500 Internal Server Error
+                return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        # If no query was provided in the request
+        return Response({"error": "No query provided"}, status=status.HTTP_400_BAD_REQUEST)

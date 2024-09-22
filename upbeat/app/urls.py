@@ -12,4 +12,5 @@ urlpatterns = [
     path('profile/delete_profile', delete_profile, name='delete_profile'),
     path('mental_health/classify', mental_care, name='mental_care'),
     path('mental_health/mental_health', get_mental_health_data, name='get_mental_health_data'),
+    path('chatbot', ChatBotView.as_view(), name='chatbot'),
 ]
